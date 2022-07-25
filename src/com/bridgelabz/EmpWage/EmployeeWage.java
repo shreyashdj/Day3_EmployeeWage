@@ -1,4 +1,4 @@
-package com.bridgelabz.day3EmpWage;
+package com.bridgelabz.EmpWage;
 
 public class EmployeeWage {
 
