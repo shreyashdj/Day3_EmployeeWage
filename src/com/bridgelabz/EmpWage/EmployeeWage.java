@@ -1,30 +1,36 @@
 package com.bridgelabz.EmpWage;
 
 public class EmployeeWage {
+	
+	final static int workingDayInMonth = 20;
+	final static int wagePerHour = 20;
+	final static int fullDayHours = 8;
+	final static int partTimeHours = 4;
+	final static int maxEmpHours = 100;
+	static int extraHours = 0;
+	static int totalEmpHours = 0;
+	static int day = 0;
 
 	public static void main(String[] args) {
 
 		System.out.println("Welcome to Employee Wage Calculation");
 		
-		final int workingDayInMonth = 20;
-		final int wagePerHour = 20;
-		final int fullDayHours = 8;
-		final int partTimeHours = 4;
-		final int maxEmpHours = 100;
-		int extraHours = 0;
-		int totalEmpHours = 0;
-		int day = 0;
-
-		 /*
-		  * 	used while loop till 20 working days
-		  * 	used switch case to
-		  * 	check employee attendance.
-		  * 	calculated employee monthly wage
-		  */
-		 
-		while (totalEmpHours < maxEmpHours && day < workingDayInMonth) {				
-				day++;
+		// used while loop till 20 working days or 100 hours
+		while (totalEmpHours < maxEmpHours && day < workingDayInMonth) {
+			dailyCalculation();
+		}
 		
+		monthlyCalculation();
+	}
+	
+	public static void dailyCalculation() {
+		
+		 /*
+		  * 	used switch case to
+		  * 	check employee daily attendance & wage
+		  */
+		
+		 day++;
 		 int attendance = (int) (Math.random()*3);		// used random function to get output (0/1/2)
 		 
 		 switch (attendance) {
@@ -36,27 +42,34 @@ public class EmployeeWage {
 		    	
 		    case 1 :	        
 			    	 totalEmpHours += fullDayHours;
-			    	 if (totalEmpHours>maxEmpHours) {
+			    	 if (totalEmpHours > maxEmpHours) {
 						extraHours = fullDayHours;
-						break;}
+						break;
+						}
 					System.out.println("\n Day: " + day);											
 					System.out.println("Employee is Present & Emp Hour : " + fullDayHours);
 	          break;
 	        	
 	       default :
 		    	    totalEmpHours += partTimeHours;	
-		    	    if (totalEmpHours>maxEmpHours) {
+		    	    if (totalEmpHours > maxEmpHours) {
 						extraHours = fullDayHours;
-						break;}
+						break;
+						}
 		    	    System.out.println("\n Day: " + day);
 					System.out.println("Employee is Part Time & Emp Hour : " + partTimeHours);     
 			}
-
-		}
-		 totalEmpHours = totalEmpHours - extraHours;
-		 int totalEmpWage = totalEmpHours * wagePerHour;
-		 System.out.println("\n Total Employee Hours = " + totalEmpHours);
-		 System.out.println(" Monthly Employee Wage = " + totalEmpWage);
+		 
+	}
+	
+	public static void monthlyCalculation() {
+		
+		// calculated employee total hours & monthly wage
+		
+		totalEmpHours = totalEmpHours - extraHours;
+		int totalEmpWage = totalEmpHours * wagePerHour;
+		System.out.println("\n Total Employee Hours = " + totalEmpHours);
+		System.out.println(" Monthly Employee Wage = " + totalEmpWage);
 	}
 
 }
