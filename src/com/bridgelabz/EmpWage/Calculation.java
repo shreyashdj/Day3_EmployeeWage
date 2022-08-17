@@ -5,8 +5,21 @@ package com.bridgelabz.EmpWage;
  */
 public class Calculation {
 	
-	public void cal (int wagePerHour, int fullDayHours, int partTimeHours, int maxEmpHours, int workingDayInMonth) {
+	int wagePerHour,  fullDayHours,  partTimeHours,  maxEmpHours,  workingDayInMonth;
 	
+	//	Constructor that initialize instance variables
+	public Calculation(int wagePerHour, int fullDayHours, int partTimeHours, int maxEmpHours, int workingDayInMonth) {
+		
+		this.wagePerHour = wagePerHour;
+		this.fullDayHours = fullDayHours;
+		this.partTimeHours = partTimeHours;
+		this.maxEmpHours = maxEmpHours;
+		this.workingDayInMonth = workingDayInMonth;
+		
+	}
+
+		public void cal () {
+		
 		System.out.println("\n wagePerHour : " + wagePerHour
 				+ "\n fullDayHours : " + fullDayHours
 				+ "\n partTimeHours : " + partTimeHours
